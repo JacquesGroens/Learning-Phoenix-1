@@ -1,0 +1,43 @@
+<div class="px-4 py-10 sm:px-6 sm:py-28 lg:px-8 xl:px-28 xl:py-32">
+    <div class="mx-auto max-w-xl lg:mx-0">
+      <nav clas="light-blue">
+        <div class="nav-wrapper container">
+          <a href="/" class="brand-logo">
+            Discussions
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+
+<h5>
+
+    Topics
+
+</h5>
+
+<ul class="collection">
+
+    <%= for topic <- @topics do %>
+
+        <li class="collection-item"> 
+            <%= topic.title %>
+            <div class="right">
+              <.link navigate={~p"/topics/#{topic}/edit"}>Edit</.link>
+              <.link navigate={~p"/topics/#{topic}/delete"}>Delete</.link>
+            </div>
+        </li>
+
+    <% end %>
+
+</ul>
+
+<div class="fixed-action-btn">
+    <.link navigate={~p"/topics/new"}>Add</.link>
+    <a class="btn-floating btn-larg waves-effect waves-light red">
+        <i class="materical-icons">
+            no
+        </i>
+    </a>
+</div>
